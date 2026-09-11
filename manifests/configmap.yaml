@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-client-config
+data:
+  CLUSTER_HOSTS: "node1.example.com,node2.example.com,node3.example.com"
+  CLUSTER_SCHEME: "https"
+  CLUSTER_TIMEOUT_SECONDS: "2"
+  CLUSTER_MAX_ATTEMPTS: "3"

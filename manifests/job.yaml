@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cluster-client-create-example
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: cluster-client
+          image: ghcr.io/your-org/cluster-client:latest
+          imagePullPolicy: IfNotPresent
+          args: ["create", "example-group"]
+          envFrom:
+            - configMapRef:
+                name: cluster-client-config
